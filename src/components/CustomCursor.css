@@ -1,0 +1,59 @@
+.custom-cursor-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-cyan);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+.custom-cursor-trail {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid var(--color-primary);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              height 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.25s, 
+              background-color 0.25s;
+}
+
+/* Hover state styling */
+.custom-cursor-dot.hovered {
+  width: 4px;
+  height: 4px;
+  background-color: var(--color-secondary);
+}
+
+.custom-cursor-trail.hovered {
+  width: 52px;
+  height: 52px;
+  border-color: var(--color-secondary);
+  background-color: rgba(168, 85, 247, 0.08);
+}
+
+/* Click state styling */
+.custom-cursor-dot.clicked {
+  transform: translate(-50%, -50%) scale(0.6);
+  background-color: var(--color-emerald);
+}
+
+.custom-cursor-trail.clicked {
+  transform: translate(-50%, -50%) scale(0.85);
+  border-color: var(--color-emerald);
+}
+
+/* Disable default cursor everywhere on large devices */
+@media (max-width: 1024px) {
+  .custom-cursor-dot,
+  .custom-cursor-trail {
+    display: none;
+  }
+}
