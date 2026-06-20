@@ -6,12 +6,30 @@ import khFlag from '../assets/kh flag.png';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    let lastScrollY = window.scrollY;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      const currentY = window.scrollY;
+
+      // Solid background once scrolled past the top
+      setScrolled(currentY > 20);
+
+      // Hide on scroll down, reveal on scroll up (ignore tiny jitters)
+      if (Math.abs(currentY - lastScrollY) > 6) {
+        setHidden(currentY > lastScrollY && currentY > 120);
+        lastScrollY = currentY;
+      }
+
+      // Page scroll progress (0–100)
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(docHeight > 0 ? (currentY / docHeight) * 100 : 0);
     };
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -25,7 +43,7 @@ export default function Header() {
   const { language, setLanguage, t } = useLanguage();
 
   return (
-    <header className={`site-header ${scrolled ? 'scrolled' : ''}`}>
+    <header className={`site-header ${scrolled ? 'scrolled' : ''} ${hidden ? 'hidden' : ''}`}>
       <div className="container header-container">
         <div className="brand" onClick={() => scrollToSection('hero')}>
           <img src="/servicelogi_mark.png" alt="ServiceLogi Logo" className="brand-logo" />
@@ -66,6 +84,9 @@ export default function Header() {
           </a>
         </div>
       </div>
+
+      {/* Scroll progress line */}
+      <div className="scroll-progress-bar" style={{ width: `${progress}%` }}></div>
     </header>
   );
 }

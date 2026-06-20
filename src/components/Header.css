@@ -18,6 +18,25 @@
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
 }
 
+/* Slide the header out of view when scrolling down */
+.site-header.hidden {
+  transform: translateY(-100%);
+}
+
+/* Scroll progress line pinned to the bottom edge of the header */
+.scroll-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary), #a855f7);
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.6);
+  border-radius: 0 2px 2px 0;
+  transition: width 0.1s linear;
+  z-index: 1001;
+}
+
 .header-container {
   display: flex;
   justify-content: space-between;
