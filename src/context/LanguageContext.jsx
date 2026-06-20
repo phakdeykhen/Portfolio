@@ -18,6 +18,7 @@ const translations = {
     'hero.contact_agent': 'Contact Agent',
     'hero.available': 'Available for Projects',
     'hero.tagline': 'Partner with us to make your company faster, smarter, and more successful.',
+    'hero.payments': 'Accepted payments',
 
     // Projects Section
     'projects.badge': 'Case Studies',
@@ -43,6 +44,7 @@ const translations = {
     // Footer
     'footer.tagline': 'Excellence in Custom Digital Infrastructure',
     'footer.copyright': 'All rights reserved.',
+    'footer.payments': 'Secure Payments Accepted',
   },
   km: {
     // Navigation
@@ -59,6 +61,7 @@ const translations = {
     'hero.contact_agent': 'ទំនាក់ទំនងភ្នាក់ងារ',
     'hero.available': 'ព្រៀមខ្លួនទទួលគម្រោងថ្មី',
     'hero.tagline': 'សហការជាមួយយើងខ្ញុំ ដើម្បីធ្វើឱ្យក្រុមហ៊ុនរបស់អ្នកលឿនជាងមុន ឆ្លាតវៃជាងមុន និងរីកចម្រើនជាងមុន។',
+    'hero.payments': 'ទទួលការទូទាត់',
 
     // Projects Section
     'projects.badge': 'ស្នាដៃការងារ',
@@ -84,6 +87,7 @@ const translations = {
     // Footer
     'footer.tagline': 'ភាពរស្ដើងនៃហេដ្ឋារចនាសម្ព័ន្ធឌីជីថលតាមតម្រូវការ',
     'footer.copyright': 'រក្សាសិទ្ធិគ្រប់យ៉ាង។',
+    'footer.payments': 'ទទួលការទូទាត់ប្រាក់ដោយសុវត្ថិភាព',
   }
 };
 

@@ -8,6 +8,74 @@
   z-index: 10;
 }
 
+/* ─── Payment methods strip ────────────────────────────────────── */
+.footer-payments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1.75rem;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.payments-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+}
+
+.payment-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  max-width: 760px;
+}
+
+.payment-chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  padding: 0 0.7rem;
+  background: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s ease,
+              filter 0.28s ease;
+  filter: saturate(0.9);
+  cursor: default;
+}
+
+.payment-chip:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 12px 26px -6px rgba(99, 102, 241, 0.4);
+  filter: saturate(1.1);
+}
+
+.payment-chip-img {
+  height: 30px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 480px) {
+  .payment-chip { height: 40px; padding: 0 0.5rem; }
+  .payment-chip-img { height: 25px; }
+  .payment-chips { gap: 0.45rem; }
+}
+
 .footer-container {
   display: flex;
   flex-direction: column;

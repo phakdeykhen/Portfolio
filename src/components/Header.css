@@ -176,3 +176,115 @@
   display: flex;
   align-items: center;
 }
+
+/* ─── Call Us dropdown ─────────────────────────────────────────── */
+.contact-dropdown {
+  position: relative;
+}
+
+.contact-dropdown .header-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.cta-chevron {
+  transition: transform 0.25s ease;
+}
+
+.cta-chevron.open {
+  transform: rotate(180deg);
+}
+
+.contact-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  min-width: 240px;
+  background: rgba(12, 15, 28, 0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 0.5rem;
+  box-shadow: 0 20px 45px -12px rgba(0, 0, 0, 0.55);
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px) scale(0.98);
+  transform-origin: top right;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  z-index: 1002;
+}
+
+.contact-menu.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+/* Little pointer arrow */
+.contact-menu::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  right: 22px;
+  width: 12px;
+  height: 12px;
+  background: rgba(12, 15, 28, 0.92);
+  border-left: 1px solid var(--border-color);
+  border-top: 1px solid var(--border-color);
+  transform: rotate(45deg);
+}
+
+.contact-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.7rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.contact-menu-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(2px);
+}
+
+.cm-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  flex-shrink: 0;
+  color: #fff;
+}
+
+.cm-icon.telegram { background: linear-gradient(135deg, #2aabee, #229ed9); }
+.cm-icon.facebook { background: linear-gradient(135deg, #1877f2, #0a5dc2); }
+.cm-icon.phone    { background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); }
+
+.cm-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.cm-title {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.cm-sub {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+}

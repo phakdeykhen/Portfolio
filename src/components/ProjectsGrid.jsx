@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import './ProjectsGrid.css';
 import { useLanguage } from '../context/LanguageContext';
+import CardSwap, { Card } from './CardSwap';
 
 const projects = [
   {
@@ -159,12 +160,39 @@ export default function ProjectsGrid() {
   return (
     <section id="projects" className="projects-section">
       <div className="container">
-        <div className="section-header text-center">
-          <span className="section-badge">{t('projects.badge')}</span>
-          <h2 className="section-title">{t('projects.title')}</h2>
-          <p className="section-description">
-            {t('projects.desc')}
-          </p>
+        <div className="projects-showcase">
+          <div className="section-header text-center showcase-text">
+            <span className="section-badge">{t('projects.badge')}</span>
+            <h2 className="section-title">{t('projects.title')}</h2>
+            <p className="section-description">
+              {t('projects.desc')}
+            </p>
+          </div>
+
+          {/* Animated swapping stack of recent project screenshots */}
+          <div className="projects-cardswap" aria-hidden="true">
+            <CardSwap
+              width={420}
+              height={270}
+              cardDistance={55}
+              verticalDistance={62}
+              delay={3200}
+              pauseOnHover
+              skewAmount={5}
+            >
+              {[
+                { img: '/portfolio/POS System.png', label: 'POS System' },
+                { img: '/portfolio/Crypto Website.png', label: 'Crypto Website' },
+                { img: '/portfolio/Loan System.png', label: 'Loan System' },
+                { img: '/portfolio/News Web.png', label: 'News Platform' },
+              ].map((c) => (
+                <Card key={c.label} customClass="swap-card">
+                  <img src={c.img} alt="" className="swap-card-img" loading="lazy" />
+                  <span className="swap-card-label">{c.label}</span>
+                </Card>
+              ))}
+            </CardSwap>
+          </div>
         </div>
 
         {/* Search & Filters */}

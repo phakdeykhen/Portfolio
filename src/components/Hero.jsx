@@ -3,6 +3,25 @@ import SplitText from './SplitText';
 import { animate } from 'animejs';
 import './Hero.css';
 import { useLanguage } from '../context/LanguageContext';
+import abaLogo from '../assets/payments/aba.png';
+import khqrLogo from '../assets/payments/khqr.png';
+import visaLogo from '../assets/payments/visa.png';
+import mastercardLogo from '../assets/payments/mastercard.png';
+import unionpayLogo from '../assets/payments/unionpay.png';
+import jcbLogo from '../assets/payments/jcb.png';
+import alipayLogo from '../assets/payments/alipay.png';
+import wechatLogo from '../assets/payments/wechat.png';
+
+const heroPayments = [
+  { src: abaLogo, name: 'ABA Bank' },
+  { src: khqrLogo, name: 'KHQR' },
+  { src: visaLogo, name: 'Visa' },
+  { src: mastercardLogo, name: 'Mastercard' },
+  { src: unionpayLogo, name: 'UnionPay' },
+  { src: jcbLogo, name: 'JCB' },
+  { src: alipayLogo, name: 'Alipay' },
+  { src: wechatLogo, name: 'WeChat Pay' },
+];
 
 const terminalLines = [
   "systemctl start servicelogi.service",
@@ -259,6 +278,18 @@ export default function Hero() {
                   <span className="metric-label">SSL Core Grade</span>
                   <span className="metric-val grade-badge">A+</span>
                 </div>
+              </div>
+            </div>
+
+            {/* Small accepted-payment methods strip below the terminal */}
+            <div className="hero-payments">
+              <span className="hero-payments-label">{t('hero.payments')}</span>
+              <div className="hero-payments-row">
+                {heroPayments.map((p) => (
+                  <span className="hero-pay-chip" key={p.name} title={p.name}>
+                    <img src={p.src} alt={p.name} loading="lazy" />
+                  </span>
+                ))}
               </div>
             </div>
           </div>
