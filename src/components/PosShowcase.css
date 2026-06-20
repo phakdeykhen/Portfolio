@@ -1,0 +1,302 @@
+.pos-section {
+  position: relative;
+  padding: 100px 0;
+  background:
+    radial-gradient(900px 480px at 18% 12%, rgba(16, 185, 129, 0.10) 0%, transparent 60%),
+    radial-gradient(1000px 540px at 85% 80%, rgba(0, 70, 173, 0.10) 0%, transparent 60%),
+    radial-gradient(700px 500px at 50% 50%, rgba(99, 102, 241, 0.06) 0%, transparent 70%),
+    linear-gradient(180deg, #ffffff 0%, #eef1f8 100%);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+/* Subtle dotted grid texture over the highlight */
+.pos-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+  background-size: 26px 26px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 0%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 0%, transparent 75%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pos-section .section-header {
+  position: relative;
+  z-index: 1;
+}
+
+/* Dark text for the header on the white background */
+.pos-section .section-title {
+  color: #0b0e1a;
+}
+
+.pos-section .section-description {
+  color: #475569;
+}
+
+.pos-section .section-badge {
+  color: var(--color-primary);
+  background: rgba(99, 102, 241, 0.1);
+}
+
+/* ─── Cards layout ──────────────────────────────────────────── */
+.pos-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.pos-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 2rem;
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  background: linear-gradient(160deg, var(--bg-card) 0%, #0b0e1a 100%);
+  box-shadow: 0 20px 50px rgba(15, 18, 37, 0.18);
+  transition: border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+  overflow: hidden;
+}
+
+/* Large floating machine image as a faded card background */
+.pos-machine-bg {
+  position: absolute;
+  top: 50%;
+  right: -6%;
+  width: 46%;
+  max-width: 480px;
+  transform: translateY(-50%);
+  object-fit: contain;
+  opacity: 0.16;
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.6));
+  pointer-events: none;
+  z-index: 0;
+  animation: pos-float-bg 9s ease-in-out infinite;
+  will-change: transform;
+}
+
+.pos-card--reverse .pos-machine-bg {
+  right: auto;
+  left: -6%;
+  animation-name: pos-float-bg-rev;
+  animation-duration: 10s;
+}
+
+@keyframes pos-float-bg {
+  0%   { transform: translateY(-50%) rotate(-4deg); }
+  50%  { transform: translateY(-58%) rotate(3deg); }
+  100% { transform: translateY(-50%) rotate(-4deg); }
+}
+
+@keyframes pos-float-bg-rev {
+  0%   { transform: translateY(-50%) rotate(4deg); }
+  50%  { transform: translateY(-58%) rotate(-3deg); }
+  100% { transform: translateY(-50%) rotate(4deg); }
+}
+
+/* Keep real content above the background machine */
+.pos-card > .pos-media,
+.pos-card > .pos-info {
+  position: relative;
+  z-index: 1;
+}
+
+.pos-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  transform: translateY(-4px);
+  box-shadow: 0 28px 60px rgba(15, 18, 37, 0.28);
+}
+
+.pos-card--reverse .pos-media {
+  order: 2;
+}
+
+/* ─── Media (video + machine) ───────────────────────────────── */
+.pos-media {
+  position: relative;
+  min-height: 320px;
+}
+
+.pos-video-frame {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--border-color));
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  background: #05060d;
+}
+
+.pos-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: #05060d;
+}
+
+.pos-live-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 50px;
+  background: rgba(5, 6, 13, 0.7);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.pos-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ff4d4d;
+  box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.7);
+  animation: pos-pulse 1.8s infinite;
+}
+
+@keyframes pos-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.6); }
+  70% { box-shadow: 0 0 0 8px rgba(255, 77, 77, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 77, 77, 0); }
+}
+
+/* Brighten and enlarge the floating background machine on hover */
+.pos-card:hover .pos-machine-bg {
+  opacity: 0.28;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pos-machine-bg {
+    animation: none;
+  }
+}
+
+/* ─── Info column ───────────────────────────────────────────── */
+.pos-info-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.pos-badge {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  padding: 0.35rem 0.9rem;
+  border-radius: 50px;
+}
+
+.pos-flag {
+  width: 30px;
+  height: auto;
+  border-radius: 3px;
+  opacity: 0.85;
+}
+
+.pos-title {
+  font-size: 1.9rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.pos-desc {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  max-width: 480px;
+}
+
+.pos-features {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem 1.25rem;
+}
+
+.pos-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.92rem;
+  color: var(--text-primary);
+}
+
+.pos-features svg {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+/* ─── Centered accepted-payments strip ──────────────────────── */
+.pos-payments {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.pos-payments-img {
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+
+/* ─── Responsive ────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .pos-card,
+  .pos-card--reverse {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .pos-card--reverse .pos-media {
+    order: 0;
+  }
+
+  .pos-machine-bg {
+    width: 70%;
+    opacity: 0.1;
+  }
+}
+
+@media (max-width: 560px) {
+  .pos-section {
+    padding: 70px 0;
+  }
+
+  .pos-card {
+    padding: 1.25rem;
+  }
+
+  .pos-features {
+    grid-template-columns: 1fr;
+  }
+}

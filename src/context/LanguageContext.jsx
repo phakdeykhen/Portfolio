@@ -31,6 +31,32 @@ const translations = {
     'projects.req_consult': 'Request Consultation',
     'projects.all': 'All',
 
+    // POS Section
+    'pos.badge': 'Payment Solutions',
+    'pos.title': 'POS & Payment Integrations',
+    'pos.desc': "Production-grade point-of-sale systems wired directly into Cambodia's leading banking rails — built, deployed, and running live in-store.",
+    'pos.live': 'LIVE',
+    'pos.acleda.badge': 'Bank POS Integration',
+    'pos.acleda.title': 'ACLEDA POS Terminal',
+    'pos.acleda.desc': 'End-to-end point-of-sale integration with ACLEDA Bank — real-time card and QR settlement, automatic receipt printing, and live transaction syncing straight into the merchant dashboard.',
+    'pos.acleda.f1': 'Card & KHQR payments',
+    'pos.acleda.f2': 'Instant settlement',
+    'pos.acleda.f3': 'Printed receipts',
+    'pos.acleda.f4': 'Offline-safe queue',
+    'pos.aba.badge': 'Payment Gateway',
+    'pos.aba.title': 'ABA PayWay POS',
+    'pos.aba.desc': 'Seamless checkout powered by ABA PayWay — accept KHQR, Visa, Mastercard and UnionPay in one tap, with auto-reconciliation and instant confirmation pushed back to the POS.',
+    'pos.aba.f1': 'ABA KHQR scan',
+    'pos.aba.f2': 'Visa / Mastercard',
+    'pos.aba.f3': 'Auto reconciliation',
+    'pos.aba.f4': 'Instant confirmation',
+
+    // Tech Stack Orbit Section
+    'tech.badge': 'Engineering Stack',
+    'tech.title': 'Built On Modern Technology',
+    'tech.desc': 'Every system we ship is engineered on a battle-tested, production-grade technology stack — scalable, secure, and maintainable.',
+    'tech.core': 'Our Stack',
+
     // Contact Section
     'contact.badge': 'Connect',
     'contact.title': "Let's Build Something Together",
@@ -73,6 +99,32 @@ const translations = {
     'projects.no_results_desc': 'គ្មានគម្រោងណាត្រូវនឹងការស្វែងរករបស់អ្នកទេ។',
     'projects.req_consult': 'ស្នើសុំការពិគ្រោះយោបល់',
     'projects.all': 'ទាំងអស់',
+
+    // POS Section
+    'pos.badge': 'ដំណោះស្រាយទូទាត់ប្រាក់',
+    'pos.title': 'ប្រព័ន្ធ POS និងការតភ្ជាប់ការទូទាត់',
+    'pos.desc': 'ប្រព័ន្ធលក់ទំនិញ (POS) កម្រិតផលិតកម្ម ដែលតភ្ជាប់ដោយផ្ទាល់ជាមួយធនាគារឈានមុខគេនៅកម្ពុជា — បង្កើត ដាក់ឱ្យដំណើរការ និងកំពុងប្រើប្រាស់ផ្ទាល់ក្នុងហាង។',
+    'pos.live': 'ផ្សាយផ្ទាល់',
+    'pos.acleda.badge': 'ការតភ្ជាប់ POS ធនាគារ',
+    'pos.acleda.title': 'ម៉ាស៊ីន POS អេស៊ីលីដា',
+    'pos.acleda.desc': 'ការតភ្ជាប់ប្រព័ន្ធលក់ទំនិញពេញលេញជាមួយធនាគារ អេស៊ីលីដា — ការទូទាត់ដោយកាត និង QR ភ្លាមៗ ការបោះពុម្ពវិក្កយបត្រស្វ័យប្រវត្ត និងការធ្វើសមកាលកម្មប្រតិបត្តិការផ្ទាល់ចូលក្នុងផ្ទាំងគ្រប់គ្រងពាណិជ្ជករ។',
+    'pos.acleda.f1': 'ទូទាត់ដោយកាត និង KHQR',
+    'pos.acleda.f2': 'ការទូទាត់ភ្លាមៗ',
+    'pos.acleda.f3': 'បោះពុម្ពវិក្កយបត្រ',
+    'pos.acleda.f4': 'រក្សាទុកពេលគ្មានអ៊ីនធឺណិត',
+    'pos.aba.badge': 'ច្រកទូទាត់ប្រាក់',
+    'pos.aba.title': 'ម៉ាស៊ីន POS ABA PayWay',
+    'pos.aba.desc': 'ការទូទាត់ដ៏រលូនដោយ ABA PayWay — ទទួល KHQR, Visa, Mastercard និង UnionPay ត្រឹមតែម្ដង ជាមួយការផ្ទៀងផ្ទាត់ស្វ័យប្រវត្ត និងការបញ្ជាក់ភ្លាមៗត្រឡប់មក POS វិញ។',
+    'pos.aba.f1': 'ស្កេន ABA KHQR',
+    'pos.aba.f2': 'Visa / Mastercard',
+    'pos.aba.f3': 'ផ្ទៀងផ្ទាត់ស្វ័យប្រវត្ត',
+    'pos.aba.f4': 'បញ្ជាក់ភ្លាមៗ',
+
+    // Tech Stack Orbit Section
+    'tech.badge': 'បច្ចេកវិទ្យាស្នូល',
+    'tech.title': 'បង្កើតលើបច្ចេកវិទ្យាទំនើប',
+    'tech.desc': 'រាល់ប្រព័ន្ធដែលយើងបង្កើត គឺស្ថិតលើបច្ចេកវិទ្យាកម្រិតផលិតកម្ម ដែលមានស្ថេរភាព សុវត្ថិភាព និងងាយស្រួលថែទាំ។',
+    'tech.core': 'បច្ចេកវិទ្យារបស់យើង',
 
     // Contact Section
     'contact.badge': 'ទំនាក់ទំនង',
