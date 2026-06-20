@@ -159,6 +159,12 @@ export default function Hero() {
               <div className="smart-word">SMART</div>
             </div>
 
+            {/* Tagline with accent line */}
+            <p className="hero-tagline fade-in-up" style={{ animationDelay: '0.05s' }}>
+              <span className="hero-tagline-line"></span>
+              {t('hero.tagline')}
+            </p>
+
             <div className="badge-wrapper">
               <span className="hero-badge">{t('hero.badge')}</span>
             </div>

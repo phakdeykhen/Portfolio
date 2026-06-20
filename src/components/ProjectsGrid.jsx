@@ -117,11 +117,8 @@ const projects = [
   }
 ];
 
-const categories = ["All", "Management", "Finance", "Web3", "EdTech", "Real Estate", "Corporate", "Media", "Utility"];
-
 export default function ProjectsGrid() {
   const { t, tCategory, tProjectTitle, tProjectDesc } = useLanguage();
-  const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
   const [activeModalProject, setActiveModalProject] = useState(null);
 
@@ -154,10 +151,9 @@ export default function ProjectsGrid() {
   };
 
   const filteredProjects = projects.filter(project => {
-    const matchesCategory = selectedCategory === "All" || project.category === selectedCategory;
-    const matchesSearch = project.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+    const matchesSearch = project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                           project.category.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
+    return matchesSearch;
   });
 
   return (
@@ -182,18 +178,6 @@ export default function ProjectsGrid() {
               onChange={(e) => setSearchQuery(e.target.value)}
               className="search-input"
             />
-          </div>
-
-          <div className="category-tabs">
-            {categories.map((category) => (
-              <button
-                key={category}
-                className={`tab-btn ${selectedCategory === category ? 'active' : ''}`}
-                onClick={() => setSelectedCategory(category)}
-              >
-                {category === 'All' ? t('projects.all') : tCategory(category)}
-              </button>
-            ))}
           </div>
         </div>
 

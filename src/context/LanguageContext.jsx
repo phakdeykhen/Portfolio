@@ -17,6 +17,7 @@ const translations = {
     'hero.explore': 'Explore Projects',
     'hero.contact_agent': 'Contact Agent',
     'hero.available': 'Available for Projects',
+    'hero.tagline': 'Partner with us to make your company faster, smarter, and more successful.',
 
     // Projects Section
     'projects.badge': 'Case Studies',
@@ -57,6 +58,7 @@ const translations = {
     'hero.explore': 'ស្វែងមើលគម្រោង',
     'hero.contact_agent': 'ទំនាក់ទំនងភ្នាក់ងារ',
     'hero.available': 'ព្រៀមខ្លួនទទួលគម្រោងថ្មី',
+    'hero.tagline': 'សហការជាមួយយើងខ្ញុំ ដើម្បីធ្វើឱ្យក្រុមហ៊ុនរបស់អ្នកលឿនជាងមុន ឆ្លាតវៃជាងមុន និងរីកចម្រើនជាងមុន។',
 
     // Projects Section
     'projects.badge': 'ស្នាដៃការងារ',
