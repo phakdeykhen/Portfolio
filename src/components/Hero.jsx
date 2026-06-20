@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import SplitText from './SplitText';
 import { animate } from 'animejs';
 import './Hero.css';
+import { useLanguage } from '../context/LanguageContext';
 
 const terminalLines = [
   "systemctl start servicelogi.service",
@@ -14,6 +15,7 @@ const terminalLines = [
 ];
 
 export default function Hero() {
+  const { t } = useLanguage();
   const [logs, setLogs] = useState([]);
   const [metricCount, setMetricCount] = useState(0);
   const terminalBodyRef = useRef(null);
@@ -65,28 +67,109 @@ export default function Hero() {
     <section id="hero" className="hero-section">
       <div className="ambient-glow hero-glow-1"></div>
       <div className="ambient-glow hero-glow-2"></div>
+
+      {/* Large faint brand logo watermark */}
+      <img
+        src="/servicelogi_mark.png"
+        alt=""
+        aria-hidden="true"
+        className="hero-bg-logo"
+      />
+
+      {/* Background Floating Blurred Technical Logos */}
+      <div className="hero-tech-background">
+        {/* React */}
+        <div className="floating-logo" style={{ left: '8%', top: '15%', animationDuration: '24s' }}>
+          <svg viewBox="-11.5 -10.23174 23 20.46348" width="100%" height="100%" fill="none" stroke="currentColor">
+            <circle cx="0" cy="0" r="2.05" fill="currentColor"/>
+            <g stroke="currentColor" strokeWidth="1">
+              <ellipse rx="11" ry="4.2"/>
+              <ellipse rx="11" ry="4.2" transform="rotate(60)"/>
+              <ellipse rx="11" ry="4.2" transform="rotate(120)"/>
+            </g>
+          </svg>
+        </div>
+        {/* JS */}
+        <div className="floating-logo" style={{ left: '3%', top: '55%', animationDuration: '28s', animationDelay: '-5s' }}>
+          <svg viewBox="0 0 24 24" width="100%" height="100%" fill="currentColor">
+            <path d="M3 3h18v18H3V3zm11.525 10.985c-.097-.624-.516-1.127-1.425-1.127-.723 0-1.192.352-1.192.934 0 .58.455.836 1.22.1.13.1.722.392 1.348.647 1.637.665 2.193 1.348 2.193 2.684 0 1.954-1.528 2.92-3.79 2.92-2.585 0-3.666-1.272-3.805-2.731h1.968c.113.722.58 1.134 1.777 1.134.992 0 1.67-.428 1.67-1.192 0-.825-.563-1.07-1.595-1.512-.876-.37-2.146-.886-2.146-2.593 0-1.745 1.4-2.85 3.513-2.85 2.193 0 3.328 1.05 3.525 2.502h-1.996zM7.22 17.513c.108.544.538.934 1.2.934.618 0 1.037-.308 1.037-.992v-5.263H11.5v5.334c0 1.838-1.096 2.723-2.924 2.723-1.895 0-2.883-.984-3.08-2.736H7.22z"/>
+          </svg>
+        </div>
+        {/* HTML5 */}
+        <div className="floating-logo" style={{ left: '45%', top: '8%', animationDuration: '26s', animationDelay: '-8s' }}>
+          <svg viewBox="0 0 24 24" width="100%" height="100%" fill="currentColor">
+            <path d="M1.5 22L0 0h24l-1.5 22L12 24zM12 4.12v3.76h4.55l-.46 5.09L12 14.63v3.74l6.09-1.68.85-9.82H12zm0 10.51l-4.13-1.13-.26-2.89H3.83l.53 6.09 7.64 2.11v-4.18z"/>
+          </svg>
+        </div>
+        {/* CSS3 */}
+        <div className="floating-logo" style={{ left: '40%', top: '85%', animationDuration: '30s', animationDelay: '-12s' }}>
+          <svg viewBox="0 0 24 24" width="100%" height="100%" fill="currentColor">
+            <path d="M1.5 22L0 0h24l-1.5 22L12 24zM12 4.12v3.76h4.55l-.46 5.09L12 14.63v3.74l6.09-1.68.85-9.82H12zm-4.32 6.64H12v3.76H7.38l-.29-3.76zm-.43-5.32l-.15-2h4.9v3.76H7.25z"/>
+          </svg>
+        </div>
+        {/* NodeJS */}
+        <div className="floating-logo" style={{ right: '8%', top: '10%', animationDuration: '22s', animationDelay: '-3s' }}>
+          <svg viewBox="0 0 24 24" width="100%" height="100%" fill="currentColor">
+            <path d="M12 2L2 7.8v11.6L12 22l10-5.8V7.8L12 2zm8 13.5l-8 4.6-8-4.6V8.5l8-4.6 8 4.6v7zM12 7l4 2.3v4.6L12 16.2l-4-2.3V9.3L12 7z"/>
+          </svg>
+        </div>
+        {/* Python */}
+        <div className="floating-logo" style={{ right: '5%', top: '48%', animationDuration: '32s', animationDelay: '-15s' }}>
+          <svg viewBox="0 0 24 24" width="100%" height="100%" fill="currentColor">
+            <path d="M11.93 2C6.98 2 7.21 4.14 7.21 4.14v1.85h4.8v.67H5.2S2 6.3 2 11.23c0 4.94 2.76 4.75 2.76 4.75h1.65v-2.31c0-2.58 2.09-4.7 4.67-4.7h4.81s1.93-.05 1.93-4.8c0-4.76-2.93-4.17-2.93-4.17S14.9 2 11.93 2zm.14 20c4.95 0 4.72-2.14 4.72-2.14v-1.85h-4.8v-.67h6.81s3.2.36 3.2-4.57c0-4.94-2.76-4.75-2.76-4.75h-1.65v2.31c0 2.58-2.09 4.7-4.67 4.7H8.11s-1.93.05-1.93 4.8c0 4.76 2.93 4.17 2.93 4.17S9.1 22 12.07 22z"/>
+          </svg>
+        </div>
+        {/* PHP */}
+        <div className="floating-logo" style={{ right: '42%', top: '82%', animationDuration: '25s', animationDelay: '-6s' }}>
+          <svg viewBox="0 0 24 24" width="100%" height="100%" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.3 12.3c-.37.74-.98 1.1-1.83 1.1h-2.13v2.1h-1.63v-6.98h3.76c.85 0 1.46.36 1.83 1.1.37.74.55 1.64.55 2.7s-.18 1.98-.55 2.7zm-2.4-1.23c.3 0 .47-.2.47-.6v-.8c0-.4-.17-.6-.47-.6h-.5v2h.5z"/>
+          </svg>
+        </div>
+        {/* Git */}
+        <div className="floating-logo" style={{ left: '25%', top: '30%', animationDuration: '27s', animationDelay: '-9s' }}>
+          <svg viewBox="0 0 24 24" width="100%" height="100%" fill="currentColor">
+            <path d="M23.3 10.9L13.1.7C12.7.3 12-.1 11.4-.1s-1.3.4-1.7.8L7.1 3.3l3.2 3.2c.8-.3 1.8-.1 2.5.6.7.7.9 1.7.6 2.5l3.2 3.2c.8-.3 1.8-.1 2.5.6.9.9.9 2.4 0 3.3s-2.4.9-3.3 0c-.7-.7-.9-1.7-.6-2.5L12 11.1v4.7c.3.2.5.5.6.8.9.9.9 2.4 0 3.3s-2.4.9-3.3 0c-.9-.9-.9-2.4 0-3.3.3-.3.7-.5 1.1-.6v-5.1c-.4-.1-.8-.3-1.1-.6L6.1 7.1.7 12.5c-.9.9-.9 2.4 0 3.3l10.2 10.2c.4.4 1.1.8 1.7.8s1.3-.4 1.7-.8l9-9c1-.9 1-2.4 0-3.3z"/>
+          </svg>
+        </div>
+        {/* Docker */}
+        <div className="floating-logo" style={{ right: '28%', top: '60%', animationDuration: '29s', animationDelay: '-4s' }}>
+          <svg viewBox="0 0 24 24" width="100%" height="100%" fill="currentColor">
+            <path d="M13.983 11.078h2.119c.102 0 .186-.083.186-.188V8.956c0-.103-.084-.186-.186-.186h-2.119c-.103 0-.186.083-.186.186v1.934c0 .105.083.188.186.188zm-2.917-3.882h2.119c.102 0 .186-.083.186-.188V5.074c0-.103-.084-.186-.186-.186h-2.119c-.103 0-.186.083-.186.186v1.934c0 .105.083.188.186.188zm0 3.882h2.119c.102 0 .186-.083.186-.188V8.956c0-.103-.084-.186-.186-.186h-2.119c-.103 0-.186.083-.186.186v1.934c0 .105.083.188.186.188zm-2.916 0h2.119c.102 0 .186-.083.186-.188V8.956c0-.103-.084-.186-.186-.186H8.15c-.102 0-.186.083-.186.186v1.934c0 .105.084.188.186.188zm-2.917 0h2.119c.103 0 .186-.083.186-.188V8.956c0-.103-.083-.186-.186-.186H5.233c-.103 0-.186.083-.186.186v1.934c0 .105.083.188.186.188zm-2.917 0h2.119c.103 0 .186-.083.186-.188V8.956c0-.103-.083-.186-.186-.186H2.316c-.103 0-.186.083-.186.186v1.934c0 .105.083.188.186.188zm1.75 3.882h2.119c.103 0 .186-.083.186-.188v-1.934c0-.103-.083-.186-.186-.186H4.066c-.103 0-.186.083-.186.186v1.934c0 .105.083.188.186.188zm2.917 0h2.119c.102 0 .186-.083.186-.188v-1.934c0-.103-.084-.186-.186-.186H6.983c-.103 0-.186.083-.186.186v1.934c0 .105.083.188.186.188zm2.916 0h2.119c.102 0 .186-.083.186-.188v-1.934c0-.103-.084-.186-.186-.186H9.9c-.102 0-.186.083-.186.186v1.934c0 .105.084.188.186.188zm10.07-3.882c-.373-.047-.723-.1-.983-.162l.004-.038c.62-.266 1.054-.925 1.054-1.69 0-1.042-.81-1.89-1.808-1.89h-1.28c-.103 0-.186.083-.186.187v5.823c0 .104.083.188.186.188h2.09c1.037 0 1.874-.848 1.874-1.89 0-.256-.05-.498-.142-.716l.011-.046c.15-.084.283-.188.396-.307l-.216-.459z"/>
+          </svg>
+        </div>
+      </div>
       
       <div className="container hero-container">
         <div className="hero-grid">
           
           {/* Left Column: Information and CTAs */}
           <div className="hero-content">
+
+            {/* GROW SMART Poster Banner */}
+            <div className="grow-smart-banner fade-in-up" style={{ animationDelay: '0s' }}>
+              <div className="grow-smart-top">
+                <span className="grow-word">GROW</span>
+                <span className="grow-arrow">
+                  <svg viewBox="0 0 32 32" width="36" height="36" fill="none">
+                    <path d="M8 24 L24 8 M14 8 H24 V18" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </span>
+              </div>
+              <div className="grow-smart-divider">GOVERNMENT &amp; COMPANY</div>
+              <div className="smart-word">SMART</div>
+            </div>
+
             <div className="badge-wrapper">
-              <span className="hero-badge">Enterprise Digital Solutions</span>
+              <span className="hero-badge">{t('hero.badge')}</span>
             </div>
             
-            <h1 className="hero-title">
-              <SplitText 
-                text="ServiceLogi" 
-                className="text-gradient brand-main-title"
-                delay={0.1}
-                stagger={50}
-              />
+            <h1 className="hero-title text-gradient brand-main-title fade-in-up" style={{ animationDelay: '0.1s' }}>
+              ServiceLogi
             </h1>
             
             <h2 className="hero-subtitle">
               <SplitText
-                text="Turning ideas into scalable, high-performance software."
+                text={t('hero.subtitle')}
                 delay={0.4}
                 stagger={15}
                 duration={500}
@@ -94,9 +177,7 @@ export default function Hero() {
             </h2>
             
             <p className="hero-description">
-              We specialize in crafting professional, responsive, and secure custom solutions — including 
-              point-of-sale systems, financial systems, educational portals, and web architectures 
-              that drive real business value.
+              {t('hero.description')}
             </p>
 
             <div className="hero-actions-container">
@@ -104,21 +185,21 @@ export default function Hero() {
                 onClick={() => scrollToSection('projects')} 
                 className="btn-primary hero-btn-main"
               >
-                <span>Explore Projects</span>
+                <span>{t('hero.explore')}</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
               </button>
               <button 
                 onClick={() => scrollToSection('contact')} 
                 className="btn-secondary hero-btn-sub"
               >
-                Contact Agent
+                {t('hero.contact_agent')}
               </button>
             </div>
 
             <div className="hero-quick-contact">
               <div className="contact-pill">
                 <span className="dot emerald-dot"></span>
-                <span className="pill-text">Available for Projects</span>
+                <span className="pill-text">{t('hero.available')}</span>
               </div>
               <div className="quick-info">
                 <a href="mailto:info@servicelogi.com" className="info-item">

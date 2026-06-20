@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import './ProjectsGrid.css';
+import { useLanguage } from '../context/LanguageContext';
 
 const projects = [
   {
@@ -119,6 +120,7 @@ const projects = [
 const categories = ["All", "Management", "Finance", "Web3", "EdTech", "Real Estate", "Corporate", "Media", "Utility"];
 
 export default function ProjectsGrid() {
+  const { t, tCategory, tProjectTitle, tProjectDesc } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
   const [activeModalProject, setActiveModalProject] = useState(null);
@@ -162,10 +164,10 @@ export default function ProjectsGrid() {
     <section id="projects" className="projects-section">
       <div className="container">
         <div className="section-header text-center">
-          <span className="section-badge">Case Studies</span>
-          <h2 className="section-title">Our Production Project History</h2>
+          <span className="section-badge">{t('projects.badge')}</span>
+          <h2 className="section-title">{t('projects.title')}</h2>
           <p className="section-description">
-            A showcase of custom applications, portals, and software infrastructures designed and deployed globally.
+            {t('projects.desc')}
           </p>
         </div>
 
@@ -175,7 +177,7 @@ export default function ProjectsGrid() {
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
             <input 
               type="text" 
-              placeholder="Search by project name..."
+              placeholder={t('projects.search_placeholder')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="search-input"
@@ -189,7 +191,7 @@ export default function ProjectsGrid() {
                 className={`tab-btn ${selectedCategory === category ? 'active' : ''}`}
                 onClick={() => setSelectedCategory(category)}
               >
-                {category}
+                {category === 'All' ? t('projects.all') : tCategory(category)}
               </button>
             ))}
           </div>
@@ -220,22 +222,22 @@ export default function ProjectsGrid() {
                   <div className="card-image-wrapper">
                     <img 
                       src={project.image} 
-                      alt={project.title} 
+                      alt={tProjectTitle(project.id, project.title)} 
                       className="project-image"
                       loading="lazy"
                     />
                     <div className="card-overlay">
-                      <span className="view-details-btn">View Details</span>
+                      <span className="view-details-btn">{t('projects.view_details')}</span>
                     </div>
                   </div>
 
                   <div className="card-info">
                     <div className="card-info-header">
-                      <span className="project-category-tag">{project.category}</span>
+                      <span className="project-category-tag">{tCategory(project.category)}</span>
                       <span className="tech-tag-indicator"></span>
                     </div>
-                    <h3 className="project-card-title">{project.title}</h3>
-                    <p className="project-card-desc">{project.desc.slice(0, 115)}...</p>
+                    <h3 className="project-card-title">{tProjectTitle(project.id, project.title)}</h3>
+                    <p className="project-card-desc">{tProjectDesc(project.id, project.desc).slice(0, 115)}...</p>
                   </div>
                 </div>
               );
@@ -243,8 +245,8 @@ export default function ProjectsGrid() {
           ) : (
             <div className="no-results">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="8" y1="12" x2="16" y2="12"></line></svg>
-              <h3>No Projects Found</h3>
-              <p>We couldn't find any projects matching your search term.</p>
+              <h3>{t('projects.no_results')}</h3>
+              <p>{t('projects.no_results_desc')}</p>
             </div>
           )}
         </div>
@@ -262,22 +264,22 @@ export default function ProjectsGrid() {
               <div className="modal-image-pane">
                 <img 
                   src={activeModalProject.image} 
-                  alt={activeModalProject.title} 
+                  alt={tProjectTitle(activeModalProject.id, activeModalProject.title)} 
                   className="modal-full-image"
                 />
               </div>
               
               <div className="modal-info-pane">
                 <div>
-                  <span className="modal-category">{activeModalProject.category}</span>
-                  <h2 className="modal-title">{activeModalProject.title}</h2>
-                  <p className="modal-desc">{activeModalProject.desc}</p>
+                  <span className="modal-category">{tCategory(activeModalProject.category)}</span>
+                  <h2 className="modal-title">{tProjectTitle(activeModalProject.id, activeModalProject.title)}</h2>
+                  <p className="modal-desc">{tProjectDesc(activeModalProject.id, activeModalProject.desc)}</p>
                 </div>
                 
                 <div className="modal-meta" style={{ borderTop: 'none', paddingTop: 0 }}>
                   <div className="modal-footer-action">
                     <a href="#contact" onClick={() => { setActiveModalProject(null); document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); }} className="btn-primary modal-cta">
-                      Request Consultation
+                      {t('projects.req_consult')}
                     </a>
                   </div>
                 </div>

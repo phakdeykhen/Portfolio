@@ -33,14 +33,14 @@
 
 /* Row Left styling: Solid subtle color */
 .row-left .marquee-track {
-  color: rgba(255, 255, 255, 0.035);
-  text-shadow: 0 0 40px rgba(99, 102, 241, 0.05);
+  color: rgba(255, 255, 255, 0.18);
+  text-shadow: 0 0 30px rgba(99, 102, 241, 0.15);
 }
 
 /* Row Right styling: Premium neon outlined text */
 .row-right .marquee-track {
   color: transparent;
-  -webkit-text-stroke: 1px rgba(99, 102, 241, 0.12);
+  -webkit-text-stroke: 1.2px rgba(168, 85, 247, 0.45);
 }
 
 @media (max-width: 768px) {

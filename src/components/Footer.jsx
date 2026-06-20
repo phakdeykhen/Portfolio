@@ -1,4 +1,5 @@
 import './Footer.css';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -7,6 +8,8 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const { t } = useLanguage();
+
   return (
     <footer className="site-footer">
       <div className="container footer-container">
@@ -14,12 +17,12 @@ export default function Footer() {
           <span className="brand-name">
             Service<span className="accent-name">Logi</span>
           </span>
-          <p className="footer-tagline">Excellence in Custom Digital Infrastructure</p>
+          <p className="footer-tagline">{t('footer.tagline')}</p>
         </div>
 
         <div className="footer-middle">
           <p className="copyright-text">
-            &copy; {currentYear} ServiceLogi. All rights reserved.
+            &copy; {currentYear} ServiceLogi. {t('footer.copyright')}
           </p>
         </div>
 

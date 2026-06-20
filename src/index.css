@@ -25,6 +25,11 @@
   scroll-behavior: smooth;
 }
 
+html[lang="km"] {
+  --font-sans: 'Noto Sans Khmer', 'Khmer OS Siemreap', system-ui, sans-serif;
+  --font-heading: 'Noto Sans Khmer', 'Khmer OS Siemreap', system-ui, sans-serif;
+}
+
 *, *::before, *::after {
   box-sizing: inherit;
 }
