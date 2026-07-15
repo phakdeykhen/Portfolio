@@ -10,6 +10,11 @@
   transition: width 0.2s, height 0.2s, background-color 0.2s;
 }
 
+.custom-cursor-dot.hidden,
+.custom-cursor-trail.hidden {
+  opacity: 0;
+}
+
 .custom-cursor-trail {
   position: fixed;
   width: 32px;

@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import ScrollVelocity from './components/ScrollVelocity';
 import ProjectsGrid from './components/ProjectsGrid';
 import TechOrbit from './components/TechOrbit';
+import Team from './components/Team';
 import PosShowcase from './components/PosShowcase';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -24,6 +25,9 @@ function App() {
 
         {/* Dynamic scroll-velocity text marquee banner */}
         <ScrollVelocity />
+
+        {/* Team profiles */}
+        <Team />
 
         {/* POS & payment integration showcase (ACLEDA + ABA) */}
         <PosShowcase />

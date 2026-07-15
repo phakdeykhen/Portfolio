@@ -31,6 +31,14 @@ const translations = {
     'projects.req_consult': 'Request Consultation',
     'projects.all': 'All',
 
+    // Team Section
+    'team.badge': 'The People Behind ServiceLogi',
+    'team.title': 'Meet Our Team',
+    'team.desc': 'A focused team combining practical engineering experience with strong academic expertise to build dependable digital products.',
+    'team.member': 'Co-Founder',
+    'team.fong.degree': "Bachelor's Degree",
+    'team.kimloongngin.degree': 'PhD',
+
     // POS Section
     'pos.badge': 'Payment Solutions',
     'pos.title': 'POS & Payment Integrations',
@@ -99,6 +107,14 @@ const translations = {
     'projects.no_results_desc': 'គ្មានគម្រោងណាត្រូវនឹងការស្វែងរករបស់អ្នកទេ។',
     'projects.req_consult': 'ស្នើសុំការពិគ្រោះយោបល់',
     'projects.all': 'ទាំងអស់',
+
+    // Team Section
+    'team.badge': 'ក្រុមការងារនៅពីក្រោយ ServiceLogi',
+    'team.title': 'ស្គាល់ក្រុមការងាររបស់យើង',
+    'team.desc': 'ក្រុមការងារដែលរួមបញ្ចូលបទពិសោធន៍វិស្វកម្មជាក់ស្តែង និងចំណេះដឹងសិក្សាខ្ពស់ ដើម្បីបង្កើតផលិតផលឌីជីថលដែលអាចទុកចិត្តបាន។',
+    'team.member': 'សហស្ថាបនិក',
+    'team.fong.degree': 'បរិញ្ញាបត្រ',
+    'team.kimloongngin.degree': 'បណ្ឌិត',
 
     // POS Section
     'pos.badge': 'ដំណោះស្រាយទូទាត់ប្រាក់',

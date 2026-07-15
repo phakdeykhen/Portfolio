@@ -1,57 +1,54 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import './CustomCursor.css';
 
+const interactiveSelector = 'a, button, select, input, textarea, .interactive-hover, [role="button"]';
+
 export default function CustomCursor() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [trailPosition, setTrailPosition] = useState({ x: 0, y: 0 });
-  const [hidden, setHidden] = useState(true);
-  const [hovered, setHovered] = useState(false);
-  const [clicked, setClicked] = useState(false);
+  const dotRef = useRef(null);
+  const trailRef = useRef(null);
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-      setHidden(false);
+    const dot = dotRef.current;
+    const trail = trailRef.current;
+    if (!dot || !trail || !window.matchMedia('(min-width: 1025px)').matches) return undefined;
+
+    const pointer = { x: 0, y: 0 };
+    const trailPosition = { x: 0, y: 0 };
+    let animationFrameId;
+
+    const setClass = (className, enabled) => {
+      dot.classList.toggle(className, enabled);
+      trail.classList.toggle(className, enabled);
     };
 
-    const handleMouseEnter = () => setHidden(false);
-    const handleMouseLeave = () => setHidden(true);
-    const handleMouseDown = () => setClicked(true);
-    const handleMouseUp = () => setClicked(false);
+    const handleMouseMove = (event) => {
+      pointer.x = event.clientX;
+      pointer.y = event.clientY;
+      dot.style.left = `${pointer.x}px`;
+      dot.style.top = `${pointer.y}px`;
+      setClass('hidden', false);
+      setClass('hovered', Boolean(event.target.closest(interactiveSelector)));
+    };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    const updateTrail = () => {
+      trailPosition.x += (pointer.x - trailPosition.x) * 0.15;
+      trailPosition.y += (pointer.y - trailPosition.y) * 0.15;
+      trail.style.left = `${trailPosition.x}px`;
+      trail.style.top = `${trailPosition.y}px`;
+      animationFrameId = requestAnimationFrame(updateTrail);
+    };
+
+    const handleMouseLeave = () => setClass('hidden', true);
+    const handleMouseEnter = () => setClass('hidden', false);
+    const handleMouseDown = () => setClass('clicked', true);
+    const handleMouseUp = () => setClass('clicked', false);
+
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
     document.addEventListener('mouseenter', handleMouseEnter);
     document.addEventListener('mouseleave', handleMouseLeave);
     window.addEventListener('mousedown', handleMouseDown);
     window.addEventListener('mouseup', handleMouseUp);
-
-    // Setup interactive hover listeners
-    const addHoverListeners = () => {
-      const targets = document.querySelectorAll('a, button, select, input, textarea, .interactive-hover, [role="button"]');
-      targets.forEach((target) => {
-        target.addEventListener('mouseenter', () => setHovered(true));
-        target.addEventListener('mouseleave', () => setHovered(false));
-      });
-    };
-
-    // Run listeners after components mount
-    const timeout = setTimeout(addHoverListeners, 500);
-
-    // Set up trailing element lag animation
-    let animationFrameId;
-    const updateTrail = () => {
-      setTrailPosition((prev) => {
-        // Linear interpolation for smooth lag
-        const dx = position.x - prev.x;
-        const dy = position.y - prev.y;
-        return {
-          x: prev.x + dx * 0.15,
-          y: prev.y + dy * 0.15,
-        };
-      });
-      animationFrameId = requestAnimationFrame(updateTrail);
-    };
-    updateTrail();
+    animationFrameId = requestAnimationFrame(updateTrail);
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
@@ -60,22 +57,13 @@ export default function CustomCursor() {
       window.removeEventListener('mousedown', handleMouseDown);
       window.removeEventListener('mouseup', handleMouseUp);
       cancelAnimationFrame(animationFrameId);
-      clearTimeout(timeout);
     };
-  }, [position.x, position.y]);
-
-  if (hidden) return null;
+  }, []);
 
   return (
     <>
-      <div
-        className={`custom-cursor-dot ${clicked ? 'clicked' : ''} ${hovered ? 'hovered' : ''}`}
-        style={{ left: `${position.x}px`, top: `${position.y}px` }}
-      />
-      <div
-        className={`custom-cursor-trail ${clicked ? 'clicked' : ''} ${hovered ? 'hovered' : ''}`}
-        style={{ left: `${trailPosition.x}px`, top: `${trailPosition.y}px` }}
-      />
+      <div ref={dotRef} className="custom-cursor-dot hidden" />
+      <div ref={trailRef} className="custom-cursor-trail hidden" />
     </>
   );
 }
