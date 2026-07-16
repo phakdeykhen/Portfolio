@@ -6,13 +6,13 @@ import kimloongnginPhoto from '../assets/kimlongngin.jpg';
 const teamMembers = [
   {
     name: 'Fong',
-    degreeKey: 'team.fong.degree',
+    roleKey: 'team.fong.role',
     image: fongPhoto,
     photoClass: 'team-photo--fong',
   },
   {
     name: 'Kimlong ngin',
-    degreeKey: 'team.kimloongngin.degree',
+    roleKey: 'team.kimloongngin.role',
     image: kimloongnginPhoto,
     photoClass: 'team-photo--kimloongngin',
   },
@@ -54,7 +54,7 @@ export default function Team() {
                 <img
                   className={`team-photo ${member.photoClass}`}
                   src={member.image}
-                  alt={`${member.name}, ${t(member.degreeKey)}`}
+                  alt={`${member.name}, ${t(member.roleKey)}`}
                   loading="lazy"
                 />
                 <img
@@ -75,7 +75,7 @@ export default function Team() {
                   <h3>{member.name}</h3>
                   <p>
                     <span className="team-degree-icon"><AcademicCapIcon /></span>
-                    {t(member.degreeKey)}
+                    {t(member.roleKey)}
                   </p>
                 </div>
                 <div className="team-card-meta" aria-hidden="true">

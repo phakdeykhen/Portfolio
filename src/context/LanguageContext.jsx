@@ -35,9 +35,9 @@ const translations = {
     'team.badge': 'The People Behind ServiceLogi',
     'team.title': 'Meet Our Team',
     'team.desc': 'A focused team combining practical engineering experience with strong academic expertise to build dependable digital products.',
-    'team.member': 'Co-Founder',
-    'team.fong.degree': "Bachelor's Degree",
-    'team.kimloongngin.degree': 'PhD',
+    'team.member': 'Founder & Co-Founder',
+    'team.fong.role': 'Lead Team Development',
+    'team.kimloongngin.role': 'Lead Research Team',
 
     // POS Section
     'pos.badge': 'Payment Solutions',
@@ -112,9 +112,9 @@ const translations = {
     'team.badge': 'ក្រុមការងារនៅពីក្រោយ ServiceLogi',
     'team.title': 'ស្គាល់ក្រុមការងាររបស់យើង',
     'team.desc': 'ក្រុមការងារដែលរួមបញ្ចូលបទពិសោធន៍វិស្វកម្មជាក់ស្តែង និងចំណេះដឹងសិក្សាខ្ពស់ ដើម្បីបង្កើតផលិតផលឌីជីថលដែលអាចទុកចិត្តបាន។',
-    'team.member': 'សហស្ថាបនិក',
-    'team.fong.degree': 'បរិញ្ញាបត្រ',
-    'team.kimloongngin.degree': 'បណ្ឌិត',
+    'team.member': 'ស្ថាបនិក និងសហស្ថាបនិក',
+    'team.fong.role': 'ប្រធានក្រុមអភិវឌ្ឍន៍',
+    'team.kimloongngin.role': 'ប្រធានក្រុមស្រាវជ្រាវ',
 
     // POS Section
     'pos.badge': 'ដំណោះស្រាយទូទាត់ប្រាក់',
