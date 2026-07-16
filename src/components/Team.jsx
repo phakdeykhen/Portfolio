@@ -1,7 +1,7 @@
 import './Team.css';
 import { useLanguage } from '../context/LanguageContext';
-import fongPhoto from '../assets/fong.jpg';
-import kimloongnginPhoto from '../assets/kimlongngin.jpg';
+import fongPhoto from '../assets/fong.webp';
+import kimloongnginPhoto from '../assets/kimlongngin.webp';
 
 const teamMembers = [
   {

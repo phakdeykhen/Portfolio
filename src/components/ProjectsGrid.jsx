@@ -7,7 +7,7 @@ const projects = [
   {
     id: 1,
     title: "POS System",
-    image: "/portfolio/POS System.png",
+    image: "/portfolio/POS System.webp",
     category: "Management",
     tags: ["React", "Electron", "Node.js", "SQLite"],
     desc: "A fully integrated Point of Sale software featuring real-time inventory tracking, physical receipt printing layouts, offline databases, and automated shifts syncing."
@@ -15,7 +15,7 @@ const projects = [
   {
     id: 2,
     title: "Loan System",
-    image: "/portfolio/Loan System.png",
+    image: "/portfolio/Loan System.webp",
     category: "Finance",
     tags: ["React", "Laravel", "MySQL", "Chart.js"],
     desc: "Automated lending and microfinance ledger dashboard. Handles customer profiles, amortization schedules, compound interest calculators, and visual repayment analytics."
@@ -23,7 +23,7 @@ const projects = [
   {
     id: 3,
     title: "Crypto Website",
-    image: "/portfolio/Crypto Website.png",
+    image: "/portfolio/Crypto Website.webp",
     category: "Web3",
     tags: ["React", "GSAP", "Tailwind", "Web3.js"],
     desc: "High-fidelity landing page for decentralized finance platform featuring crypto price graphs, token swap layout, and dark mode UI."
@@ -31,7 +31,7 @@ const projects = [
   {
     id: 4,
     title: "Education Course",
-    image: "/portfolio/Education Course.png",
+    image: "/portfolio/Education Course.webp",
     category: "EdTech",
     tags: ["React", "Firebase", "CSS Grid", "YouTube API"],
     desc: "Learning Management System (LMS) with module progress indicators, video hosting, custom lecture quizzes, and certificate downloads."
@@ -39,7 +39,7 @@ const projects = [
   {
     id: 5,
     title: "Car Website",
-    image: "/portfolio/Car website.png",
+    image: "/portfolio/Car website.webp",
     category: "E-Commerce",
     tags: ["Vite", "GSAP", "CSS Variables"],
     desc: "Premium car rental and sales portal utilizing smooth GSAP transitions and grid filter views."
@@ -47,7 +47,7 @@ const projects = [
   {
     id: 6,
     title: "Quotation System",
-    image: "/portfolio/Quo System.png",
+    image: "/portfolio/Quo System.webp",
     category: "Utility",
     tags: ["React", "Node.js", "PostgreSQL", "PDFKit"],
     desc: "B2B client billing and quote generator. Streamlines invoices, price margins, PDF export, and email integration."
@@ -55,7 +55,7 @@ const projects = [
   {
     id: 7,
     title: "School Administrative System",
-    image: "/portfolio/School System-.png",
+    image: "/portfolio/School System-.webp",
     category: "EdTech",
     tags: ["React", "PHP", "MariaDB"],
     desc: "Backoffice portal for schools, regulating class assignments, student rosters, grading structures, and fee payments."
@@ -63,7 +63,7 @@ const projects = [
   {
     id: 8,
     title: "School Academic Website",
-    image: "/portfolio/School website.png",
+    image: "/portfolio/School website.webp",
     category: "Corporate",
     tags: ["HTML5", "Vanilla JS", "CSS Grid"],
     desc: "Public-facing website for academic admissions, news releases, student galleries, and course outlines."
@@ -71,7 +71,7 @@ const projects = [
   {
     id: 9,
     title: "Property Listing Portal",
-    image: "/portfolio/Property .png",
+    image: "/portfolio/Property .webp",
     category: "Real Estate",
     tags: ["React", "Leaflet Maps", "Firebase"],
     desc: "Real estate search engine showcasing property coordinates on interactive maps, price graphs, and landlord message boards."
@@ -79,7 +79,7 @@ const projects = [
   {
     id: 10,
     title: "Real Estate Portal",
-    image: "/portfolio/Sell Property.png",
+    image: "/portfolio/Sell Property.webp",
     category: "Real Estate",
     tags: ["React", "Styled Components", "MySQL"],
     desc: "Agent platform for selling properties. Includes 3D floor plan viewers, scheduling client visits, and contract tracking."
@@ -87,7 +87,7 @@ const projects = [
   {
     id: 11,
     title: "Company Profile (Interactive)",
-    image: "/portfolio/Company Profile .png",
+    image: "/portfolio/Company Profile .webp",
     category: "Corporate",
     tags: ["React", "GSAP", "Vanilla CSS"],
     desc: "A stunning corporate identity page highlighting agency timelines, case studies, and client review carousels."
@@ -95,7 +95,7 @@ const projects = [
   {
     id: 12,
     title: "Company Profile (Corporate)",
-    image: "/portfolio/Compnay Profile.png",
+    image: "/portfolio/Compnay Profile.webp",
     category: "Corporate",
     tags: ["Vite", "React", "CSS Modules"],
     desc: "Minimalist landing page for technology startups. Focused on performance, high readability, and clean typography."
@@ -103,7 +103,7 @@ const projects = [
   {
     id: 13,
     title: "News Web Platform",
-    image: "/portfolio/News Web.png",
+    image: "/portfolio/News Web.webp",
     category: "Media",
     tags: ["React", "Next.js", "Redis"],
     desc: "High-traffic journalism platform featuring dynamic content blocks, search indexing, and content editor dashboards."
@@ -111,7 +111,7 @@ const projects = [
   {
     id: 14,
     title: "News Portal",
-    image: "/portfolio/News.png",
+    image: "/portfolio/News.webp",
     category: "Media",
     tags: ["HTML5", "Vanilla CSS", "REST API"],
     desc: "Simple, layout-optimized news feed rendering real-time articles, categorization tabs, and clean reading grids."
@@ -181,10 +181,10 @@ export default function ProjectsGrid() {
               skewAmount={5}
             >
               {[
-                { img: '/portfolio/POS System.png', label: 'POS System' },
-                { img: '/portfolio/Crypto Website.png', label: 'Crypto Website' },
-                { img: '/portfolio/Loan System.png', label: 'Loan System' },
-                { img: '/portfolio/News Web.png', label: 'News Platform' },
+                { img: '/portfolio/POS System.webp', label: 'POS System' },
+                { img: '/portfolio/Crypto Website.webp', label: 'Crypto Website' },
+                { img: '/portfolio/Loan System.webp', label: 'Loan System' },
+                { img: '/portfolio/News Web.webp', label: 'News Platform' },
               ].map((c) => (
                 <Card key={c.label} customClass="swap-card">
                   <img src={c.img} alt="" className="swap-card-img" loading="lazy" />
