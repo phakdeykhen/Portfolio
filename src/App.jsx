@@ -5,6 +5,7 @@ import ProjectsGrid from './components/ProjectsGrid';
 import TechOrbit from './components/TechOrbit';
 import Team from './components/Team';
 import PosShowcase from './components/PosShowcase';
+import Careers from './components/Careers';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
@@ -37,6 +38,9 @@ function App() {
 
         {/* Dynamic filterable Projects Grid */}
         <ProjectsGrid />
+
+        {/* Open job positions */}
+        <Careers />
 
         {/* Contact Info and form */}
         <Contact />

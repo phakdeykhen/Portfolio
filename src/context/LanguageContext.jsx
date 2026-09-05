@@ -8,6 +8,7 @@ const translations = {
     'nav.home': 'Home',
     'nav.portfolio': 'Portfolio',
     'nav.contact': 'Get In Touch',
+    'nav.career': 'Career',
     'nav.call_us': 'Call Us',
 
     // Hero
@@ -65,6 +66,29 @@ const translations = {
     'tech.desc': 'Every system we ship is engineered on a battle-tested, production-grade technology stack — scalable, secure, and maintainable.',
     'tech.core': 'Our Stack',
 
+    // Careers Section
+    'careers.badge': 'Join Our Team',
+    'careers.title': 'Open Positions',
+    'careers.desc': 'We are growing our team in Phnom Penh. If you are eager to learn and want to build real digital products with us, we would love to hear from you.',
+    'careers.open_badge': 'Now Hiring',
+    'careers.type': 'Internship',
+    'careers.location': 'Phnom Penh, Cambodia',
+    'careers.schedule': 'Full-time / Part-time',
+    'careers.marketing_intern.title': 'Marketing Intern',
+    'careers.marketing_intern.desc': 'Support our marketing team with social media content, campaign planning, and customer outreach for our software products. Ideal for students or fresh graduates who want hands-on digital marketing experience.',
+    'careers.responsibilities': 'What You Will Do',
+    'careers.marketing_intern.r1': 'Create and schedule content for Facebook, Telegram, and TikTok',
+    'careers.marketing_intern.r2': 'Assist with product campaigns, promotions, and marketing materials',
+    'careers.marketing_intern.r3': 'Research the market and collect customer feedback',
+    'careers.marketing_intern.r4': 'Reply to customer inquiries and support the sales team',
+    'careers.requirements': 'What We Look For',
+    'careers.marketing_intern.q1': 'Student or fresh graduate in Marketing, Business, or a related field',
+    'careers.marketing_intern.q2': 'Good communication in Khmer and basic English',
+    'careers.marketing_intern.q3': 'Familiar with social media and basic design tools (Canva, Photoshop)',
+    'careers.marketing_intern.q4': 'Willing to learn, responsible, and a team player',
+    'careers.apply': 'Apply Now',
+    'careers.apply_note': 'Send your CV via Telegram or call us directly.',
+
     // Contact Section
     'contact.badge': 'Connect',
     'contact.title': "Let's Build Something Together",
@@ -86,6 +110,7 @@ const translations = {
     'nav.home': 'ទំព័រដើម',
     'nav.portfolio': 'ស្នាដៃការងារ',
     'nav.contact': 'ទំនាក់ទំនង',
+    'nav.career': 'ការងារ',
     'nav.call_us': 'ហៅទូរស័ព្ទ',
 
     // Hero — inspired by GROW SMART poster: growth + digital for gov & business
@@ -142,6 +167,29 @@ const translations = {
     'tech.title': 'បង្កើតលើបច្ចេកវិទ្យាទំនើប',
     'tech.desc': 'រាល់ប្រព័ន្ធដែលយើងបង្កើត គឺស្ថិតលើបច្ចេកវិទ្យាកម្រិតផលិតកម្ម ដែលមានស្ថេរភាព សុវត្ថិភាព និងងាយស្រួលថែទាំ។',
     'tech.core': 'បច្ចេកវិទ្យារបស់យើង',
+
+    // Careers Section
+    'careers.badge': 'ចូលរួមក្រុមការងារយើង',
+    'careers.title': 'មុខតំណែងទំនេរ',
+    'careers.desc': 'យើងកំពុងពង្រីកក្រុមការងារនៅរាជធានីភ្នំពេញ។ ប្រសិនបើអ្នកចង់រៀនសូត្រ និងចង់បង្កើតផលិតផលឌីជីថលជាក់ស្តែងជាមួយយើង សូមទាក់ទងមកកាន់យើងខ្ញុំ។',
+    'careers.open_badge': 'កំពុងជ្រើសរើស',
+    'careers.type': 'កម្មសិក្សា',
+    'careers.location': 'ភ្នំពេញ ប្រទេសកម្ពុជា',
+    'careers.schedule': 'ពេញម៉ោង / ក្រៅម៉ោង',
+    'careers.marketing_intern.title': 'កម្មសិក្សាការីផ្នែកទីផ្សារ',
+    'careers.marketing_intern.desc': 'ជួយក្រុមទីផ្សាររបស់យើងក្នុងការបង្កើតមាតិកាបណ្ដាញសង្គម រៀបចំយុទ្ធនាការផ្សព្វផ្សាយ និងទំនាក់ទំនងអតិថិជនសម្រាប់ផលិតផលកម្មវិធីរបស់យើង។ សាកសមសម្រាប់និស្សិត ឬអ្នកទើបបញ្ចប់ការសិក្សាដែលចង់បានបទពិសោធន៍ជាក់ស្តែងផ្នែកទីផ្សារឌីជីថល។',
+    'careers.responsibilities': 'ការទទួលខុសត្រូវ',
+    'careers.marketing_intern.r1': 'បង្កើត និងរៀបចំមាតិកាសម្រាប់ Facebook, Telegram និង TikTok',
+    'careers.marketing_intern.r2': 'ជួយរៀបចំយុទ្ធនាការផលិតផល ការផ្សព្វផ្សាយ និងសម្ភារៈទីផ្សារ',
+    'careers.marketing_intern.r3': 'ស្រាវជ្រាវទីផ្សារ និងប្រមូលមតិយោបល់ពីអតិថិជន',
+    'careers.marketing_intern.r4': 'ឆ្លើយតបសំណួរអតិថិជន និងគាំទ្រក្រុមលក់',
+    'careers.requirements': 'លក្ខខណ្ឌត្រូវការ',
+    'careers.marketing_intern.q1': 'និស្សិត ឬអ្នកទើបបញ្ចប់ការសិក្សាផ្នែកទីផ្សារ ពាណិជ្ជកម្ម ឬជំនាញពាក់ព័ន្ធ',
+    'careers.marketing_intern.q2': 'មានជំនាញទំនាក់ទំនងល្អជាភាសាខ្មែរ និងអង់គ្លេសកម្រិតមូលដ្ឋាន',
+    'careers.marketing_intern.q3': 'ស្គាល់បណ្ដាញសង្គម និងកម្មវិធីរចនាមូលដ្ឋាន (Canva, Photoshop)',
+    'careers.marketing_intern.q4': 'ចង់រៀនសូត្រ មានការទទួលខុសត្រូវ និងធ្វើការជាក្រុមបានល្អ',
+    'careers.apply': 'ដាក់ពាក្យឥឡូវនេះ',
+    'careers.apply_note': 'សូមផ្ញើប្រវត្តិរូបសង្ខេប (CV) តាម Telegram ឬទូរស័ព្ទមកយើងផ្ទាល់។',
 
     // Contact Section
     'contact.badge': 'ទំនាក់ទំនង',
@@ -214,7 +262,10 @@ const projectTranslations = {
   '13.desc': 'ប្រព័ន្ធសារព័ត៌មានដែលមានអ្នកទស្សនាច្រើន បង្ហាញប្លុកមាតិកាឌីណាមិក ការស្វែងរកលឿន និងផ្ទាំងគ្រប់គ្រងសម្រាប់អ្នកកែសម្រួល។',
   
   '14.title': 'គេហទំព័រព័ត៌មាន',
-  '14.desc': 'ទំព័រព័ត៌មានសាមញ្ញ បង្ហាញអត្ថបទព័ត៌មានភ្លាមៗ ផ្ទាំងប្រភេទព័ត៌មាន និងប្លង់អានដ៏ស្អាត។'
+  '14.desc': 'ទំព័រព័ត៌មានសាមញ្ញ បង្ហាញអត្ថបទព័ត៌មានភ្លាមៗ ផ្ទាំងប្រភេទព័ត៌មាន និងប្លង់អានដ៏ស្អាត។',
+
+  '15.title': 'គេហទំព័រជួល និងលក់អចលនទ្រព្យ',
+  '15.desc': 'គេហទំព័រទីផ្សារអចលនទ្រព្យពេញលេញសម្រាប់ការជួល និងការលក់ ដែលមានប្រព័ន្ធស្វែងរកតាមលក្ខខណ្ឌច្រើន (ប្រភេទអចលនទ្រព្យ ប្រភេទចំណាត់ថ្នាក់ ខេត្ត និងស្រុក) តម្រងកម្រិតខ្ពស់ ប្រវត្តិរូបភ្នាក់ងារ គណនីសមាជិក និងផ្ទៃប្រើប្រាស់ពីរភាសា អង់គ្លេស និងខ្មែរ។'
 };
 
 export function LanguageProvider({ children }) {

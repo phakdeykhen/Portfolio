@@ -74,6 +74,7 @@ export default function Header() {
         <nav className="nav-links">
           <button onClick={() => scrollToSection('hero')} className="nav-btn">{t('nav.home')}</button>
           <button onClick={() => scrollToSection('projects')} className="nav-btn">{t('nav.portfolio')}</button>
+          <button onClick={() => scrollToSection('careers')} className="nav-btn">{t('nav.career')}</button>
           <button onClick={() => scrollToSection('contact')} className="nav-btn">{t('nav.contact')}</button>
         </nav>
 

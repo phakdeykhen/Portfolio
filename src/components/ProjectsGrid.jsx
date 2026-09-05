@@ -115,6 +115,14 @@ const projects = [
     category: "Media",
     tags: ["HTML5", "Vanilla CSS", "REST API"],
     desc: "Simple, layout-optimized news feed rendering real-time articles, categorization tabs, and clean reading grids."
+  },
+  {
+    id: 15,
+    title: "Property Rental & Sales Website",
+    image: "/portfolio/Property Website.webp",
+    category: "Real Estate",
+    tags: ["React", "Node.js", "MySQL", "Multi-language"],
+    desc: "Full property marketplace for rent and sale listings with a multi-criteria search engine (property type, category, province, district), advanced filters, agent profiles, member accounts, and bilingual English/Khmer interface."
   }
 ];
 
