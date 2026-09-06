@@ -5,6 +5,14 @@ import CardSwap, { Card } from './CardSwap';
 
 const projects = [
   {
+    id: 16,
+    title: "ScanMe (Attendance & Leave System)",
+    image: "/portfolio/ScanMe System.webp",
+    category: "Management",
+    tags: ["React", "Flutter", "Java", "Spring Boot", "PostgreSQL"],
+    desc: "Comprehensive attendance, leave, and team management platform built with Java Spring Boot backend, React web dashboard, and Flutter mobile app. Features real-time QR check-in, leave entitlement policies, manager approval workflows, overtime tracking, and synchronized mobile & web interfaces."
+  },
+  {
     id: 1,
     title: "POS System",
     image: "/portfolio/POS System.webp",
@@ -123,14 +131,6 @@ const projects = [
     category: "Real Estate",
     tags: ["React", "Node.js", "MySQL", "Multi-language"],
     desc: "Full property marketplace for rent and sale listings with a multi-criteria search engine (property type, category, province, district), advanced filters, agent profiles, member accounts, and bilingual English/Khmer interface."
-  },
-  {
-    id: 16,
-    title: "ScanMe (Attendance & Leave System)",
-    image: "/portfolio/ScanMe System.webp",
-    category: "Management",
-    tags: ["React", "Flutter", "Java", "Spring Boot", "PostgreSQL"],
-    desc: "Comprehensive attendance, leave, and team management platform built with Java Spring Boot backend, React web dashboard, and Flutter mobile app. Features real-time QR check-in, leave entitlement policies, manager approval workflows, overtime tracking, and synchronized mobile & web interfaces."
   }
 ];
 
