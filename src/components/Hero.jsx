@@ -26,7 +26,7 @@ const heroPayments = [
 const terminalLines = [
   "systemctl start servicelogi.service",
   "Initializing digital core framework...",
-  "Loading portfolio projects database... [14 FOUND]",
+  "Loading portfolio projects database... [16 FOUND]",
   "Establishing secure API tunnels... DONE",
   "Optimizing responsive layouts... OK",
   "GSAP & Anime.js engines running... ACTIVE",

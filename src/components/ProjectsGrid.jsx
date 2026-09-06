@@ -123,6 +123,14 @@ const projects = [
     category: "Real Estate",
     tags: ["React", "Node.js", "MySQL", "Multi-language"],
     desc: "Full property marketplace for rent and sale listings with a multi-criteria search engine (property type, category, province, district), advanced filters, agent profiles, member accounts, and bilingual English/Khmer interface."
+  },
+  {
+    id: 16,
+    title: "ScanMe (Attendance & Leave System)",
+    image: "/portfolio/ScanMe System.webp",
+    category: "Management",
+    tags: ["React", "React Native", "Java", "Spring Boot", "PostgreSQL"],
+    desc: "Comprehensive attendance, leave, and team management platform built with Java Spring Boot and React/React Native. Features real-time QR check-in, leave entitlement policies, manager approval workflows, overtime tracking, and synchronized mobile & web interfaces."
   }
 ];
 
@@ -161,7 +169,8 @@ export default function ProjectsGrid() {
 
   const filteredProjects = projects.filter(project => {
     const matchesSearch = project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          project.category.toLowerCase().includes(searchQuery.toLowerCase());
+                          project.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          project.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
     return matchesSearch;
   });
 
@@ -189,6 +198,7 @@ export default function ProjectsGrid() {
               skewAmount={5}
             >
               {[
+                { img: '/portfolio/ScanMe System.webp', label: 'ScanMe System' },
                 { img: '/portfolio/POS System.webp', label: 'POS System' },
                 { img: '/portfolio/Crypto Website.webp', label: 'Crypto Website' },
                 { img: '/portfolio/Loan System.webp', label: 'Loan System' },
