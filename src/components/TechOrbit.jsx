@@ -8,7 +8,7 @@ const rows = [
   },
   {
     dir: 'right',
-    items: ['TypeScript', 'Spring Boot', 'Go', 'Rust', 'C++', 'Node.js', 'Laravel', 'React', 'React Native', 'Vue'],
+    items: ['TypeScript', 'Spring Boot', 'Flutter', 'Go', 'Rust', 'C++', 'Node.js', 'Laravel', 'React', 'Vue'],
   },
   {
     dir: 'left',

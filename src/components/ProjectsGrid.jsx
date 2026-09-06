@@ -129,8 +129,8 @@ const projects = [
     title: "ScanMe (Attendance & Leave System)",
     image: "/portfolio/ScanMe System.webp",
     category: "Management",
-    tags: ["React", "React Native", "Java", "Spring Boot", "PostgreSQL"],
-    desc: "Comprehensive attendance, leave, and team management platform built with Java Spring Boot and React/React Native. Features real-time QR check-in, leave entitlement policies, manager approval workflows, overtime tracking, and synchronized mobile & web interfaces."
+    tags: ["React", "Flutter", "Java", "Spring Boot", "PostgreSQL"],
+    desc: "Comprehensive attendance, leave, and team management platform built with Java Spring Boot backend, React web dashboard, and Flutter mobile app. Features real-time QR check-in, leave entitlement policies, manager approval workflows, overtime tracking, and synchronized mobile & web interfaces."
   }
 ];
 
