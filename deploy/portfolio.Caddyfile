@@ -1,0 +1,15 @@
+# Append to /opt/vm-edge/Caddyfile. Caddy issues certificates for both names.
+servicelogi.com {
+	encode zstd gzip
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		-Server
+	}
+	reverse_proxy 127.0.0.1:8086
+}
+
+www.servicelogi.com {
+	redir https://servicelogi.com{uri} permanent
+}

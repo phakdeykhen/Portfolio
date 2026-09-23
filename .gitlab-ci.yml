@@ -1,0 +1,105 @@
+# =============================================================================
+# ServiceLogi website (servicelogi.com) — test, build, verify, and deploy on the
+# self-hosted VM runner. Same model as the HRMS, POS, and quotation projects:
+# the `hrms-vm` shell runner drives the host Docker daemon directly.
+# =============================================================================
+
+stages: [test, build, verify, deploy]
+
+default:
+  tags: [hrms-vm]
+  interruptible: true
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+variables:
+  IMAGE: $CI_REGISTRY_IMAGE
+
+.local_docker:
+  before_script:
+    # A shell runner must use the host socket, not stale DinD variables.
+    - unset DOCKER_HOST DOCKER_TLS_VERIFY DOCKER_CERT_PATH DOCKER_TLS_CERTDIR
+    - docker info
+
+.registry_docker:
+  extends: .local_docker
+  before_script:
+    - !reference [.local_docker, before_script]
+    # Do not let parallel projects overwrite the runner user's Docker login.
+    - export DOCKER_CONFIG="$(mktemp -d)"
+    - trap 'rm -rf "$DOCKER_CONFIG"' EXIT
+    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"
+
+# ---------------------------------------------------------------------- test
+lint:
+  extends: .local_docker
+  stage: test
+  cache:
+    key:
+      files: [package-lock.json]
+    paths: [.npm/]
+  script:
+    # Node is not installed on the host; run as the runner user so files stay removable.
+    - mkdir -p .npm
+    - >
+      docker run --rm
+      --user "$(id -u):$(id -g)"
+      -e HOME=/tmp
+      -e npm_config_cache=/app/.npm
+      -v "$PWD":/app
+      -w /app
+      node:22-alpine
+      sh -c "npm ci --prefer-offline --no-audit --no-fund && npm run lint"
+  allow_failure: true
+
+# --------------------------------------------------------------------- build
+build_image:
+  extends: .registry_docker
+  stage: build
+  retry:
+    max: 2
+    when: script_failure
+  script:
+    - docker build --pull -t "$IMAGE:$CI_COMMIT_SHA" .
+    - docker push "$IMAGE:$CI_COMMIT_SHA" || { sleep 10; docker push "$IMAGE:$CI_COMMIT_SHA"; }
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+# -------------------------------------------------------------------- verify
+smoke_test:
+  extends: .registry_docker
+  stage: verify
+  script:
+    - docker pull "$IMAGE:$CI_COMMIT_SHA"
+    - docker run -d --name "portfolio-smoke-$CI_JOB_ID" "$IMAGE:$CI_COMMIT_SHA"
+    - sh scripts/smoke-image.sh "portfolio-smoke-$CI_JOB_ID"
+  after_script:
+    - docker rm -f "portfolio-smoke-$CI_JOB_ID" >/dev/null 2>&1 || true
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+# -------------------------------------------------------------------- deploy
+deploy_vm:
+  stage: deploy
+  interruptible: false
+  resource_group: portfolio-production
+  variables:
+    GIT_STRATEGY: none
+  needs: [build_image, smoke_test]
+  environment:
+    name: production
+    url: https://servicelogi.com
+  before_script:
+    - unset DOCKER_HOST DOCKER_TLS_VERIFY DOCKER_CERT_PATH DOCKER_TLS_CERTDIR
+    - export DOCKER_CONFIG="$(mktemp -d)"
+    - trap 'rm -rf "$DOCKER_CONFIG"' EXIT
+    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"
+  script:
+    - /opt/portfolio/deploy.sh "$CI_COMMIT_SHA"
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      when: manual
+  allow_failure: false
